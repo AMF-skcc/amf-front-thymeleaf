@@ -5,6 +5,8 @@ Thymeleaf Sample
 - 템플릿 미적용 버전 : http://localhost:8080/simple/index
 
 # 2. 패키지 기본 구조
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+src/main/
 ├── java/
 │   └── sample/
 │       ├── controller/
@@ -14,7 +16,8 @@ Thymeleaf Sample
 └── resources/
     ├── static/
     └── templates/
-    
+</code></pre></div></div>
+   
 # 3. 템플릿 적용 방법
 ## 1. 템플릿 사이트에서 템플릿을 선택한다.
   - https://www.creative-tim.com/templates/free
