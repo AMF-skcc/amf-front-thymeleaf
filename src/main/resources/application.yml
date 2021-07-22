@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: amf-front-thymeleaf
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+server:
+  port: 8080
+

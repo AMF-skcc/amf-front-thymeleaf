@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <link th:href="@{/css/bootstrap.min.css}"
+        href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+  <div class="py-5 text-center">
+    <h2>Simple Index</h2>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary float-end"
+              th:onclick="|location.href='@{/simple/register}'|"
+              type="button">사용자 등록</button>
+      <button class="btn btn-primary float-end"
+              th:onclick="|location.href='@{/simple/login}'|"
+              type="button">로그인</button>
+      <button class="btn btn-primary float-end"
+              th:onclick="|location.href='@{/simple/profile/1}'|"
+              type="button">프로필 조회</button>
+      <button class="btn btn-primary float-end"
+              th:onclick="|location.href='@{/simple/tables}'|"
+              type="button">사용자 목록</button>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
