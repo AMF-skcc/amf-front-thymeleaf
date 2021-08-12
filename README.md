@@ -3,7 +3,6 @@ Thymeleaf Sample
 # 1. 샘플 데모
 - 템플릿 적용 버전 : http://localhost:8080/index
 <img width="1240" alt="thymeleaf_1" src="https://user-images.githubusercontent.com/62231786/126603139-a8597c6a-6a9b-4d57-9842-f0aa444bafbb.png">
-
 - 템플릿 미적용 버전 : http://localhost:8080/simple/index
 <img width="1240" alt="thymeleaf_2" src="https://user-images.githubusercontent.com/62231786/126603160-fe86ec86-974e-4b68-acfb-68bee25c8732.png">
 

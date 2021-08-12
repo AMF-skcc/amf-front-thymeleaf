@@ -27,7 +27,7 @@
       <tr th:each="member : ${members}">
         <td th:text="${member.id}"></td>
         <td th:text="${member.name}"></td>
-        <td th:text="${member.email}"></td>
+        <td th:text="${member.contact.email}"></td>
         <td>
           <button type="button" class="btn btn-primary float-end"
                   th:onclick="|location.href='@{/simple/profile/{memberId}(memberId=${member.id})}'|">

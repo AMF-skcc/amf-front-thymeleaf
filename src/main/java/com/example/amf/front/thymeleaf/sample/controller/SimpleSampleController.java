@@ -1,12 +1,19 @@
 package com.example.amf.front.thymeleaf.sample.controller;
 
-import com.example.amf.front.thymeleaf.sample.dto.MemberDto;
-import com.example.amf.front.thymeleaf.sample.service.SampleService;
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.amf.front.thymeleaf.sample.dto.LoginDto;
+import com.example.amf.front.thymeleaf.sample.dto.MemberDto;
+import com.example.amf.front.thymeleaf.sample.service.SampleService;
+
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
@@ -22,15 +29,19 @@ public class SimpleSampleController {
 
     @GetMapping("/login")
     public String getLoginForm(Model model) {
-        model.addAttribute("member", new MemberDto());
+        model.addAttribute("member", new LoginDto());
         return "simple/login";
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute MemberDto member) {
-        log.info("member=" + member.toString());
+    public String login(@ModelAttribute LoginDto loginDto) {
+        log.info("login=" + loginDto.toString());
+        
+        if (sampleService.login(loginDto)) {
+        	return "redirect:tables";
+        }
 
-        return "redirect:tables";
+        return "redirect:login";
     }
 
     @GetMapping("/register")
@@ -40,11 +51,12 @@ public class SimpleSampleController {
     }
 
     @PostMapping("/register")
-    public String register(@ModelAttribute MemberDto member, Model model) {
+    public String register(@ModelAttribute MemberDto memberDto, Model model) {
         log.info("Simple >>> ");
-        log.info("member=" + member.toString());
-
-        return "redirect:tables";
+        log.info("member=" + memberDto.toString());
+        sampleService.save(memberDto);
+        
+        return "redirect:login";
     }
 
     @GetMapping("/tables")
@@ -56,8 +68,7 @@ public class SimpleSampleController {
 
     @GetMapping("/profile/{memberId}")
     public String getProfile(@PathVariable Long memberId, Model model) {
-        model.addAttribute("member", sampleService.findMember());
-        model.addAttribute("memberId", memberId);
+        model.addAttribute("member", sampleService.findMember(memberId));
 
         return "simple/profile";
     }

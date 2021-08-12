@@ -7,11 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MemberDto {
-    private Long id;
-    private String name;
-    private String password;
-    private Long teamId;
-    private String role;
-    private ContactDto contact;
+public class ContactDto {
+	private String email;
+	private String mobile;
 }
